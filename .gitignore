@@ -1,0 +1,5 @@
+node_modules/
+.mcp-upstream-versions.json
+.mcp-update-report.md
+.env
+*.local

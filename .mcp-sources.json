@@ -1,0 +1,71 @@
+{
+  "$schema": "./docs/mcp-sources.schema.json",
+  "version": "1.0.0",
+  "lastChecked": "2026-06-17T00:00:00Z",
+  "sources": [
+    {
+      "id": "superpowers",
+      "repo": "obra/superpowers",
+      "pinnedSha": null,
+      "pinnedTag": null,
+      "featuresAdopted": [
+        "5-phase discipline (clarify→design→plan→code→verify)",
+        "skill routing on session start",
+        "cross-tool compatibility layer"
+      ],
+      "commandsAffected": ["perform", "perform-ship", "perform-think"]
+    },
+    {
+      "id": "everything-claude-code",
+      "repo": "affaan-m/everything-claude-code",
+      "pinnedSha": null,
+      "pinnedTag": null,
+      "featuresAdopted": [
+        "memory system (user/feedback/project/reference types)",
+        "model routing (haiku/sonnet/opus by task complexity)",
+        "immutability rule",
+        "context budget rules",
+        "anti-pattern list"
+      ],
+      "commandsAffected": ["perform-recall", "perform-debrief", "perform-swarm"]
+    },
+    {
+      "id": "gsd",
+      "repo": "gsd-build/get-shit-done",
+      "pinnedSha": null,
+      "pinnedTag": null,
+      "featuresAdopted": [
+        "research-first protocol",
+        "context budget rules (GSD anti-patterns 1-15)",
+        "phase-based workflow with CONTEXT.md",
+        "parallel researcher agents",
+        "goal-backward verification"
+      ],
+      "commandsAffected": ["perform-ship", "perform-research", "perform-think"]
+    },
+    {
+      "id": "claude-flow",
+      "repo": "ruvnet/ruflo",
+      "pinnedSha": null,
+      "pinnedTag": null,
+      "featuresAdopted": [
+        "swarm intelligence architecture",
+        "persistent memory with structured storage",
+        "parallel agent orchestration pattern"
+      ],
+      "commandsAffected": ["perform-swarm", "mcp-orchestrator agent"]
+    },
+    {
+      "id": "trailofbits-config",
+      "repo": "trailofbits/claude-code-config",
+      "pinnedSha": null,
+      "pinnedTag": null,
+      "featuresAdopted": [
+        "security checklist (hardcoded secrets, rm -rf guard, no push to main)",
+        "security-first hooks pattern",
+        "STOP-on-security-trigger rule"
+      ],
+      "commandsAffected": ["perform-guard"]
+    }
+  ]
+}

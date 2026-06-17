@@ -1,0 +1,50 @@
+{
+  "name": "make-claude-perform",
+  "version": "0.1.0",
+  "description": "The unified Claude Code framework — synthesizing the best of superpowers, everything-claude-code, GSD, claude-flow, and trailofbits into one non-conflicting harness",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "anthropic",
+    "claude-agent",
+    "claude-framework",
+    "claude-harness",
+    "claude-code-framework",
+    "claude-code-config",
+    "claude-code-workflow",
+    "ai-agent",
+    "ai-coding",
+    "llm-agent",
+    "agentic-coding",
+    "claude-commands",
+    "claude-skills",
+    "claude-slash-commands",
+    "make-claude-perform",
+    "mcp",
+    "everything-claude-code",
+    "gsd",
+    "superpowers"
+  ],
+  "homepage": "https://github.com/yourusername/make-claude-perform",
+  "bugs": {
+    "url": "https://github.com/yourusername/make-claude-perform/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/make-claude-perform.git"
+  },
+  "license": "MIT",
+  "author": "Make Claude Perform Contributors",
+  "bin": {
+    "make-claude-perform": "./bin/cli.js"
+  },
+  "scripts": {
+    "install-project": "bash install.sh",
+    "install-global": "bash install.sh --global",
+    "pulse": "node scripts/check-upstreams.js && node scripts/generate-update-report.js",
+    "test": "node scripts/test-commands.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
