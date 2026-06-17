@@ -1,10 +1,11 @@
 ---
-description: Research-only phase — no code written, facts gathered and synthesized
+description: Research-only phase — gather facts and write a research artifact, no implementation
 ---
 
 Research: $ARGUMENTS
 
-This is a read-only phase. No files are created or modified here.
+This phase gathers facts only. No implementation files are created.
+A research artifact is written to `.mcp/research/[topic].md` for downstream phases.
 
 ## Research Protocol (from GSD research-first + ECC)
 
@@ -24,6 +25,8 @@ This is a read-only phase. No files are created or modified here.
 - Look for battle-tested libraries that solve 80%+ of the problem
 
 ## Output
+
+Write `.mcp/research/[topic].md` with:
 
 ```
 ## Research Summary: [topic]

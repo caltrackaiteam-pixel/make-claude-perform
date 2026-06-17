@@ -25,16 +25,16 @@
     "gsd",
     "superpowers"
   ],
-  "homepage": "https://github.com/yourusername/make-claude-perform",
+  "homepage": "https://github.com/caltrackaiteam-pixel/make-claude-perform",
   "bugs": {
-    "url": "https://github.com/yourusername/make-claude-perform/issues"
+    "url": "https://github.com/caltrackaiteam-pixel/make-claude-perform/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/make-claude-perform.git"
+    "url": "git+https://github.com/caltrackaiteam-pixel/make-claude-perform.git"
   },
   "license": "MIT",
-  "author": "Make Claude Perform Contributors",
+  "author": "caltrackaiteam-pixel",
   "bin": {
     "make-claude-perform": "./bin/cli.js"
   },

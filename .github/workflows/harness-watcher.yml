@@ -19,32 +19,25 @@ jobs:
   check-upstreams:
     name: Check upstream frameworks for updates
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v4
-      
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
         with:
           node-version: '20'
-      
-      - name: Read pinned versions
-        id: pinned
-        run: |
-          echo "sources=$(cat .mcp-sources.json)" >> $GITHUB_OUTPUT
-      
+
       - name: Query GitHub API for latest versions
         id: upstream
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/check-upstreams.js
-        
+        run: node scripts/check-upstreams.js
+
       - name: Compare versions and generate diff summary
         id: diff
-        run: |
-          node scripts/generate-update-report.js
-      
+        run: node scripts/generate-update-report.js
+
       - name: Create update PR if changes detected
         if: steps.diff.outputs.has_updates == 'true' && github.event.inputs.dry_run != 'true'
         env:
@@ -52,29 +45,32 @@ jobs:
         run: |
           git config user.name "mcp-harness-watcher[bot]"
           git config user.email "noreply@github.com"
-          
+
           BRANCH="auto-update/$(date +%Y-%m-%d)"
           git checkout -b "$BRANCH"
-          
+
           # Update .mcp-sources.json with new pinned SHAs
           node scripts/pin-new-versions.js
-          
+
           git add .mcp-sources.json
           git commit -m "chore: pin upstream updates $(date +%Y-%m-%d)"
           git push origin "$BRANCH"
-          
+
+          # Determine default branch
+          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
+
           # Create PR with full diff report
           gh pr create \
             --title "Upstream update available — $(date +%Y-%m-%d)" \
             --body "$(cat .mcp-update-report.md)" \
             --label "upstream-update" \
             --label "needs-review" \
-            --base main \
+            --base "$DEFAULT_BRANCH" \
             --head "$BRANCH"
-      
+
       - name: Upload update report as artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08  # v4.6.0
         with:
           name: update-report-${{ github.run_number }}
           path: .mcp-update-report.md

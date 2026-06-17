@@ -159,6 +159,19 @@ The `.mcp-sources.json` file tracks which version of each upstream framework we'
 
 ---
 
+
+## Prerequisites for Swarm Mode
+
+The  command and  agent use specialist agents from **everything-claude-code (ECC)**:
+, , , .
+
+All other  commands work standalone with zero dependencies.
+
+To enable swarm mode, install ECC alongside Make Claude Perform:
+\[0;34mMake Claude Perform — Installer[0m
+
+[1;33mInstalling to project: /c/Users/kadmo/Downloads/make-claude-perform[0m
+[1;33m  Backed up existing CLAUDE.md → CLAUDE.md.bak.1781713502[0m
 ## Contributing
 
 1. Fork the repo

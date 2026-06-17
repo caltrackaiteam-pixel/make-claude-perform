@@ -1,5 +1,4 @@
 {
-  "$schema": "./docs/mcp-sources.schema.json",
   "version": "1.0.0",
   "lastChecked": "2026-06-17T00:00:00Z",
   "sources": [
@@ -13,7 +12,11 @@
         "skill routing on session start",
         "cross-tool compatibility layer"
       ],
-      "commandsAffected": ["perform", "perform-ship", "perform-think"]
+      "commandsAffected": [
+        "perform",
+        "perform-ship",
+        "perform-think"
+      ]
     },
     {
       "id": "everything-claude-code",
@@ -27,7 +30,11 @@
         "context budget rules",
         "anti-pattern list"
       ],
-      "commandsAffected": ["perform-recall", "perform-debrief", "perform-swarm"]
+      "commandsAffected": [
+        "perform-recall",
+        "perform-debrief",
+        "perform-swarm"
+      ]
     },
     {
       "id": "gsd",
@@ -41,7 +48,11 @@
         "parallel researcher agents",
         "goal-backward verification"
       ],
-      "commandsAffected": ["perform-ship", "perform-research", "perform-think"]
+      "commandsAffected": [
+        "perform-ship",
+        "perform-research",
+        "perform-think"
+      ]
     },
     {
       "id": "claude-flow",
@@ -53,7 +64,10 @@
         "persistent memory with structured storage",
         "parallel agent orchestration pattern"
       ],
-      "commandsAffected": ["perform-swarm", "mcp-orchestrator agent"]
+      "commandsAffected": [
+        "perform-swarm",
+        "mcp-orchestrator agent"
+      ]
     },
     {
       "id": "trailofbits-config",
@@ -65,7 +79,9 @@
         "security-first hooks pattern",
         "STOP-on-security-trigger rule"
       ],
-      "commandsAffected": ["perform-guard"]
+      "commandsAffected": [
+        "perform-guard"
+      ]
     }
   ]
 }

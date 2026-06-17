@@ -19,21 +19,28 @@ async function fetchJson(url) {
     https.get(url, options, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(JSON.parse(data)));
+      res.on('end', () => {
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          return reject(new Error(`HTTP ${res.statusCode} from ${url}`));
+        }
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error(`Invalid JSON from ${url}: ${e.message}`));
+        }
+      });
     }).on('error', reject);
   });
 }
 
 async function getLatestVersion(repo) {
   try {
-    // Try latest release first
     const release = await fetchJson(`https://api.github.com/repos/${repo}/releases/latest`);
     if (release.tag_name) {
       return { type: 'release', tag: release.tag_name, sha: release.target_commitish, body: release.body || '' };
     }
   } catch {}
-  
-  // Fall back to latest commit on default branch
+
   try {
     const commits = await fetchJson(`https://api.github.com/repos/${repo}/commits?per_page=1`);
     const commit = commits[0];
@@ -59,7 +66,6 @@ async function getStarCount(repo) {
 
 async function main() {
   const results = {};
-  
   for (const source of sources) {
     console.log(`Checking ${source.repo}...`);
     const [version, stars] = await Promise.all([
@@ -68,7 +74,6 @@ async function main() {
     ]);
     results[source.id] = { repo: source.repo, latest: version, stars };
   }
-  
   fs.writeFileSync('.mcp-upstream-versions.json', JSON.stringify(results, null, 2));
   console.log('Written .mcp-upstream-versions.json');
 }
